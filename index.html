@@ -1,109 +1,220 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta property="og:title" content="AI Research Acceleration at UD">
-  <meta property="og:description" content="Implementing PaperBanana for publication-ready methodology diagrams.">
-  <meta property="og:image" content="https://dwzhu-pku.github.io/PaperBanana/static/images/teaser.png"> 
   <meta charset="utf-8">
+  <meta name="description" content="PaperBanana: Agentic Framework for Academic Illustration at University of Dubai.">
+  <meta name="keywords" content="University of Dubai, AI, PaperBanana, Research, Visualization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PaperBanana @ University of Dubai</title>
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
   <style>
-    body { font-family: 'Google Sans', sans-serif; line-height: 1.6; color: #3c4043; max-width: 900px; margin: 0 auto; padding: 40px; background-color: #f8f9fa; }
-    .header { text-align: center; margin-bottom: 50px; }
-    .title { font-size: 2.5rem; font-weight: bold; color: #202124; margin-bottom: 10px; }
-    .university { font-size: 1.2rem; color: #1a73e8; font-weight: 500; }
-    .author-block { margin-top: 20px; font-size: 1.1rem; }
-    .section { background: white; padding: 30px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    h2 { color: #1a73e8; border-bottom: 2px solid #e8f0fe; padding-bottom: 10px; }
-    .highlight-box { background: #e8f0fe; padding: 15px; border-left: 5px solid #1a73e8; margin: 20px 0; font-style: italic; }
-    .badge { background: #ceead6; color: #0d652d; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
-    .agent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-    .agent-card { text-align: center; padding: 15px; background: #f1f3f4; border-radius: 8px; font-weight: bold; }
-    footer { text-align: center; font-size: 0.9rem; color: #70757a; margin-top: 50px; }
+    body { font-family: 'Noto Sans', sans-serif; background-color: #fdfdfd; }
+    .footer .icon-link { color: #000; }
+    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 700; color: #202124; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; font-size: 1.2rem; color: #1a73e8; }
+    .publication-venue { font-weight: bold; color: #555; margin-top: 10px; }
+    .hero-body { padding-bottom: 2rem; }
+    
+    /* Custom Architecture Diagram Styles */
+    .arch-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 2rem; }
+    .arch-box { 
+        width: 160px; padding: 20px; border-radius: 12px; text-align: center; 
+        background: white; border: 1px solid #e1e4e8; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+    }
+    .arch-box:hover { transform: translateY(-5px); border-color: #1a73e8; }
+    .arch-icon { font-size: 2.5rem; margin-bottom: 10px; color: #1a73e8; }
+    .arch-title { font-weight: bold; color: #333; }
+    .arch-arrow { align-self: center; font-size: 1.5rem; color: #bbb; }
+
+    /* Comparison Table Styles */
+    .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; border: 1px solid #dbdbdb; }
+    .comparison-table th { background-color: #f5f7fa; padding: 15px; text-align: left; border-bottom: 1px solid #dbdbdb; }
+    .comparison-table td { padding: 15px; border-bottom: 1px solid #eee; background: white; }
+    .highlight-green { color: #0d652d; font-weight: bold; background-color: #e6ffed; padding: 4px 8px; border-radius: 4px; }
+    .highlight-red { color: #a30000; background-color: #ffe6e6; padding: 4px 8px; border-radius: 4px; }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1 class="title">PaperBanana: Automating Academic Illustration</h1>
-    <p class="university">University of Dubai • IT Infrastructure & DevOps Initiative</p>
-    <div class="author-block">
-        <strong>Mohamed Asath</strong><br>
-        <span class="badge">AI Readiness Program</span>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://buildingtheitguy.com">
+        <span class="icon"><i class="fas fa-home"></i></span>
+        <span>Home</span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">University Initiatives</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">AI Readiness Program</a>
+          <a class="navbar-item">IT Infrastructure</a>
+        </div>
+      </div>
     </div>
   </div>
+</nav>
 
-  <div class="section">
-    <h2>The Vision</h2>
-    <p>As the University of Dubai moves toward <strong>AI Readiness</strong>, we are implementing agentic frameworks to optimize faculty productivity. <strong>PaperBanana</strong> is a multi-agent system that automates the generation of publication-ready methodology diagrams and 100% accurate statistical plots.</p>
-    <div class="highlight-box">
-        "Moving from raw technical content to NeurIPS-standard visuals in minutes, not days."
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">PaperBanana: Automating Academic Illustration</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Mohamed Asath (Project Lead)</span>
+          </div>
+          <div class="is-size-5 publication-venue">
+            <span>University of Dubai • IT Infrastructure & DevOps Initiative</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>Original Paper (Google)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/BuildingTHEITGUY" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code Pilot</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="section">
-    <h2>Agentic Architecture</h2>
-    <p>Instead of a single prompt, PaperBanana orchestrates a collaborative team of 5 specialized agents:</p>
-    <div class="agent-grid">
-      <div class="agent-card">🔍 Retriever</div>
-      <div class="agent-card">📝 Planner</div>
-      <div class="agent-card">🎨 Stylist</div>
-      <div class="agent-card">🖼️ Visualizer</div>
-      <div class="agent-card">⚖️ Critic</div>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Executive Summary</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generating publication-ready illustrations is a critical bottleneck in the <strong>University of Dubai's</strong> research workflow. 
+            While our faculty excels at discovery, the manual labor of formatting diagrams often delays submission.
+          </p>
+          <p>
+            We introduce the <strong>PaperBanana Agentic Framework</strong> to our institutional infrastructure. 
+            Unlike standard AI tools, this system orchestrates specialized agents to retrieve references, plan content, 
+            and write <strong>executable Python code</strong> for statistical plots. This ensures 100% data fidelity 
+            and "NeurIPS-standard" aesthetics, directly supporting our goal of increasing acceptance rates in top-tier journals.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="section">
-    <h2>Smart Benchmarking</h2>
-    <ul>
-      <li><strong>Conciseness:</strong> +37.2% improvement in visual clarity over standard GPT-4/DALL-E outputs.</li>
-      <li><strong>Data Fidelity:</strong> 0% Hallucination rate in charts by utilizing <strong>Executable Python Code</strong> instead of pixel generation.</li>
-      <li><strong>Readability:</strong> Optimized for peer-review success in high-impact journals.</li>
-    </ul>
-  </div>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">The Agentic Workflow</h2>
+      <p class="subtitle is-6">How the multi-agent system processes research data.</p>
+      
+      <div class="arch-container">
+        <div class="arch-box">
+          <div class="arch-icon"><i class="fas fa-search"></i></div>
+          <div class="arch-title">Retriever</div>
+          <p class="is-size-7">Finds academic references</p>
+        </div>
+        <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+        
+        <div class="arch-box">
+          <div class="arch-icon"><i class="fas fa-clipboard-list"></i></div>
+          <div class="arch-title">Planner</div>
+          <p class="is-size-7">Drafts visual layout</p>
+        </div>
+        <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
 
-  <div class="section">
-    <h2>Institutional Impact</h2>
-    <p>By centralizing this tool within the University IT infrastructure, we provide faculty with:</p>
-    <ul>
-      <li><strong>Unified Visual Identity:</strong> A professional UD "brand" across all international publications.</li>
-      <li><strong>Accelerated Submission:</strong> Shaving days off the formatting phase of research.</li>
-      <li><strong>Educational Support:</strong> Empowering PhD and Master's students to produce world-class theses.</li>
-    </ul>
+        <div class="arch-box">
+          <div class="arch-icon"><i class="fas fa-palette"></i></div>
+          <div class="arch-title">Stylist</div>
+          <p class="is-size-7">Applies UD Branding</p>
+        </div>
+        <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+
+        <div class="arch-box">
+          <div class="arch-icon"><i class="fas fa-code"></i></div>
+          <div class="arch-title">Coder</div>
+          <p class="is-size-7">Writes Python Plot Code</p>
+        </div>
+      </div>
+
+    </div>
   </div>
-<div class="section">
-    <h2>Strategic Comparison: Manual vs. AI-Agentic Visualization</h2>
-    <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-      <thead>
-        <tr style="background-color: #f1f3f4; text-align: left;">
-          <th style="padding: 12px; border: 1px solid #ddd;">Feature</th>
-          <th style="padding: 12px; border: 1px solid #ddd;">Traditional Manual Process</th>
-          <th style="padding: 12px; border: 1px solid #ddd;">PaperBanana Framework</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Production Time</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">4–8 Hours per diagram</td>
-          <td style="padding: 12px; border: 1px solid #ddd; color: #1a73e8;">~5 Minutes</td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Data Accuracy</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">High risk of human entry error</td>
-          <td style="padding: 12px; border: 1px solid #ddd; color: #1a73e8;">100% Fidelity (Code-based)</td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Visual Style</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">Inconsistent across departments</td>
-          <td style="padding: 12px; border: 1px solid #ddd; color: #1a73e8;">NeurIPS-Standard Aesthetics</td>
-        </tr>
-      </tbody>
-    </table>
-</div>
-  <footer>
-    &copy; 2026 University of Dubai | Proposed by the IT Service Department
-    <br><a href="https://buildingtheitguy.com">Back to Building THE IT GUY</a>
-  </footer>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Strategic Impact: Manual vs. AI</h2>
+    <div class="content">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Traditional Manual Process</th>
+            <th>PaperBanana Framework</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Production Time</strong></td>
+            <td><span class="highlight-red">4–8 Hours</span> per diagram</td>
+            <td><span class="highlight-green">~5 Minutes</span> automation</td>
+          </tr>
+          <tr>
+            <td><strong>Data Accuracy</strong></td>
+            <td>Risk of manual entry error</td>
+            <td><span class="highlight-green">100% Fidelity</span> (Code-Based)</td>
+          </tr>
+          <tr>
+            <td><strong>Aesthetics</strong></td>
+            <td>Inconsistent styles</td>
+            <td><span class="highlight-green">NeurIPS Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Cost</strong></td>
+            <td>High (Faculty Time)</td>
+            <td><span class="highlight-green">Low</span> (Open Source)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://buildingtheitguy.com">
+        <i class="fas fa-home"></i> Back to Building THE IT GUY
+      </a>
+      <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+        Initiative proposed by the <strong>University of Dubai IT Department</strong>.<br>
+        Based on the Nerfies project template.
+      </p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
