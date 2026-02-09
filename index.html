@@ -4,182 +4,441 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PaperBanana @ University of Dubai</title>
-
+  
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
+  
   <style>
-    body { font-family: 'Noto Sans', sans-serif; background-color: #fdfdfd; }
-    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 700; color: #202124; margin-bottom: 10px; }
-    .publication-authors { font-family: 'Google Sans', sans-serif; font-size: 1.2rem; color: #1a73e8; }
-    .publication-venue { font-weight: bold; color: #555; margin-top: 10px; }
+    /* Core Styles - Similar to original with University of Dubai branding */
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfdfd;
+      color: #202124;
+      line-height: 1.6;
+    }
     
-    /* Custom Section Styles */
-    .hero-body { padding-bottom: 2rem; }
-    .section-title { color: #202124; margin-bottom: 1.5rem; text-align: center; font-weight: 600; }
-    .content-block { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; margin-bottom: 30px; }
+    /* University of Dubai Brand Colors - Adjust as needed */
+    :root {
+      --uod-primary: #003366;    /* Assuming deep blue as primary color */
+      --uod-secondary: #c8102e;  /* Assuming red as secondary color - from UAE flag */
+      --uod-accent: #007a3d;     /* Assuming green as accent color - from UAE flag */
+      --uod-light: #f5f5f5;
+      --uod-dark: #333333;
+    }
     
-    /* Comparison Table */
-    .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-    .comparison-table th { background-color: #f8f9fa; padding: 12px; border-bottom: 2px solid #e1e4e8; }
-    .comparison-table td { padding: 12px; border-bottom: 1px solid #eee; }
-    .highlight-green { color: #0d652d; background-color: #e6ffed; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-    .highlight-red { color: #a30000; background-color: #ffe6e6; padding: 2px 8px; border-radius: 4px; }
-
-    /* Image Containers */
-    .image-caption { font-size: 0.9rem; color: #666; text-align: center; margin-top: 10px; font-style: italic; }
-    .framework-img { width: 100%; border-radius: 8px; border: 1px solid #eee; }
+    /* Container and Layout */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header and Navigation */
+    header {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+    
+    .title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--uod-primary);
+    }
+    
+    .authors {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: var(--uod-secondary);
+    }
+    
+    .institution {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .links {
+      margin: 20px 0;
+    }
+    
+    .links a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 8px 16px;
+      background: var(--uod-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    /* Sections and Content */
+    section {
+      margin: 50px 0;
+    }
+    
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--uod-primary);
+      border-bottom: 2px solid var(--uod-primary);
+      padding-bottom: 10px;
+    }
+    
+    /* Image Container */
+    .image-container {
+      margin: 30px 0;
+      text-align: center;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .image-caption {
+      margin-top: 10px;
+      font-style: italic;
+      color: #666;
+      text-align: center;
+    }
+    
+    /* Teaser and Hero Images */
+    .teaser-image {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    /* Two-column layout for comparisons */
+    .comparison {
+      display: flex;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .comparison-column {
+      flex: 1;
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding: 30px 0;
+      text-align: center;
+      background: var(--uod-light);
+      color: var(--uod-dark);
+    }
+    
+    /* University Logo */
+    .university-logo {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    
+    /* Executive Summary Highlight */
+    .executive-summary {
+      background-color: rgba(0, 51, 102, 0.05);
+      border-left: 4px solid var(--uod-primary);
+      padding: 20px;
+      margin: 30px 0;
+    }
+    
+    /* Strategic Benefits */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .benefit-card {
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-top: 4px solid var(--uod-primary);
+    }
+    
+    .benefit-title {
+      color: var(--uod-primary);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
-
-<nav class="navbar is-white" role="navigation" aria-label="main navigation" style="box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://buildingtheitguy.com">
-      <span class="icon" style="color: #1a73e8;"><i class="fas fa-home"></i></span>
-      <strong>Building THE IT GUY</strong>
-    </a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h1 class="title is-1 publication-title">PaperBanana: Automating Academic Illustration</h1>
-      <div class="is-size-5 publication-authors">
-        <span class="author-block">Mohamed Asath (Project Lead)</span>
-      </div>
-      <div class="is-size-5 publication-venue">
-        <span>University of Dubai • IT Infrastructure & DevOps Initiative</span>
-      </div>
-      <div class="column has-text-centered">
-        <div class="publication-links">
-           <span class="link-block">
-            <a href="https://github.com/BuildingTHEITGUY" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon"><i class="fab fa-github"></i></span>
-              <span>Code Pilot</span>
-            </a>
-          </span>
-        </div>
-      </div>
+  <header>
+    <!-- Replace with actual University of Dubai logo -->
+    <img src="https://example.com/university-of-dubai-logo.png" alt="University of Dubai Logo" class="university-logo">
+    
+    <h1 class="title">PaperBanana: Automating Academic Illustration for AI Scientists</h1>
+    
+    <div class="authors">
+      Mohamed Asath<sup>1</sup> (Project Lead)
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="content-block">
-      <h2 class="title is-4">Executive Summary</h2>
-      <p>
-        Generating publication-ready illustrations is a critical bottleneck in the <strong>University of Dubai's</strong> research workflow. 
-        We are introducing the <strong>PaperBanana Agentic Framework</strong> to our institutional infrastructure. 
-        Unlike standard AI tools, this system orchestrates specialized agents to retrieve references, plan content, 
-        and write <strong>executable Python code</strong> for statistical plots.
-      </p>
+    
+    <div class="institution">
+      <sup>1</sup>University of Dubai • Research Enhancement Initiative
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title">Automating Complex Methodologies</h2>
-    <div class="content-block">
-      <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/teaser.png" class="framework-img" alt="Methodology Examples">
-      <p class="image-caption">
-        Figure 1: Examples of "NeurIPS-Standard" diagrams generated automatically from raw text. 
-        This capability allows faculty to focus on science, not graphic design.
-      </p>
+    
+    <div class="links">
+      <a href="#" target="_blank">Implementation Plan</a>
+      <a href="#" target="_blank">GitHub</a>
     </div>
-  </div>
-</section>
-
-<section class="section has-background-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title">The Multi-Agent Architecture</h2>
-    <div class="content-block">
-      <p style="margin-bottom: 20px;">
-        PaperBanana does not rely on a single prompt. It uses a <strong>Linear Planning Phase</strong> followed by an <strong>Iterative Refinement Loop</strong>.
-      </p>
-      <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/framework.jpg" class="framework-img" alt="Agentic Architecture">
-       <p class="image-caption">
-        Figure 2: The 5-Agent System (Retriever, Planner, Stylist, Visualizer, Critic) ensuring quality control.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title" style="color: #d93025;">Data Fidelity: The "Anti-Hallucination" Engine</h2>
-    <div class="content-block">
-      <div class="columns is-vcentered">
-        <div class="column is-6">
-          <h4 class="title is-5">The Challenge</h4>
-          <p>Standard Generative AI (like DALL-E) treats charts as "pictures," often inventing numbers ("Hallucination").</p>
-          <h4 class="title is-5">The Solution</h4>
-          <p>PaperBanana's <strong>Coder Agent</strong> writes executable Python (Matplotlib) code. This ensures the plot is a <strong>mathematically perfect</strong> representation of the researcher's raw data.</p>
-        </div>
-        <div class="column is-6">
-           <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/statistics_fail_cases.png" class="framework-img" alt="Code vs Image Generation">
-        </div>
-      </div>
-      <p class="image-caption">
-        Figure 3: Comparison showing how Code-Based Generation (Right) eliminates the data errors found in Image-Based Generation (Left).
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title">Strategic Impact Analysis</h2>
-    <div class="content-block">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Traditional Manual Process</th>
-            <th>PaperBanana Framework</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Production Time</strong></td>
-            <td><span class="highlight-red">4–8 Hours</span> per diagram</td>
-            <td><span class="highlight-green">~5 Minutes</span> automation</td>
-          </tr>
-          <tr>
-            <td><strong>Data Accuracy</strong></td>
-            <td>Risk of manual entry error</td>
-            <td><span class="highlight-green">100% Fidelity</span> (Code-Based)</td>
-          </tr>
-          <tr>
-            <td><strong>Cost</strong></td>
-            <td>High (Faculty Time)</td>
-            <td><span class="highlight-green">Low</span> (Open Source)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
+  </header>
+  
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://buildingtheitguy.com">
-        <i class="fas fa-home"></i> Back to Building THE IT GUY
-      </a>
-      <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">
-        <strong>Disclaimer:</strong> This is a proposal for internal implementation at the University of Dubai. 
-        PaperBanana is a research framework by Google Cloud AI & Peking University. 
-        Images used here are from the original paper (CC-BY-SA 4.0) for demonstration purposes.
+    <!-- Teaser image section - same as original -->
+    <div class="image-container">
+      <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/teaser.png" class="teaser-image" alt="Examples of methodology diagrams and statistical plots generated by PaperBanana">
+      <p class="image-caption">
+        Examples of methodology diagrams and statistical plots generated by PaperBanana, which show the
+        potential of automating the generation of academic illustrations.
       </p>
     </div>
+    
+    <!-- Executive Summary - adapted for University of Dubai -->
+    <div class="executive-summary">
+      <p>
+        Despite rapid advances in autonomous AI scientists powered by language models, generating publication-ready illustrations remains a labor-intensive bottleneck in the research workflow at University of Dubai. To lift this burden, we are implementing PaperBanana, an agentic framework for automated generation of publication-ready academic illustrations. Powered by state-of-the-art VLMs and image generation models, PaperBanana orchestrates specialized agents to retrieve references, plan content and style, render images, and iteratively refine via self-critique.
+      </p>
+      <p>
+        This implementation will directly support University of Dubai's strategic research initiatives by significantly reducing the time researchers spend on creating visualizations, allowing them to focus on core scientific contributions.
+      </p>
+    </div>
+    
+    <!-- Method Overview - same content as original -->
+    <section>
+      <h2 class="section-title">Method Overview</h2>
+      <p>
+        We propose implementing PaperBanana at University of Dubai as a reference-driven agentic framework for automated academic illustration. As illustrated in the diagram below, PaperBanana orchestrates a collaborative team of five specialized agents—Retriever, Planner, Stylist, Visualizer, and Critic—to transform raw scientific content into publication-quality diagrams and plots.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/framework.jpg" alt="PaperBanana Framework">
+        <p class="image-caption">The PaperBanana framework with its five specialized agents.</p>
+      </div>
+      
+      <ul>
+        <li><strong>Retriever Agent:</strong> Identifies relevant reference examples to guide downstream agents.</li>
+        <li><strong>Planner Agent:</strong> Acts as the cognitive core, translating context into detailed textual descriptions.</li>
+        <li><strong>Stylist Agent:</strong> Ensures adherence to academic aesthetic standards by synthesizing guidelines from references.</li>
+        <li><strong>Visualizer Agent:</strong> Transforms textual descriptions into visual output or executable code.</li>
+        <li><strong>Critic Agent:</strong> Inspects generated images/plots against the source to provide feedback for refinement.</li>
+      </ul>
+    </section>
+    
+    <!-- Strategic Benefits for University of Dubai -->
+    <section>
+      <h2 class="section-title">Strategic Benefits for University of Dubai</h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-title">Enhanced Research Productivity</div>
+          <p>Reduce diagram creation time from hours to minutes, allowing faculty to focus on core research activities.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-title">Publication Quality</div>
+          <p>Ensure consistent, professional-quality visualizations across all university research outputs.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-title">Grant Competitiveness</div>
+          <p>Improve proposal success rates through clear, compelling visual communication of complex ideas.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-title">Cross-Disciplinary Collaboration</div>
+          <p>Create a common visual language that facilitates collaboration across departments.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-title">Educational Enhancement</div>
+          <p>Support graduate students in producing publication-quality visualizations regardless of design experience.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-title">Institutional Reputation</div>
+          <p>Establish a recognizable "visual brand" for University of Dubai research publications.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Benchmark Construction - same as original -->
+    <section>
+      <h2 class="section-title">Benchmark Construction</h2>
+      <p>
+        The lack of benchmarks hinders rigorous evaluation of automated diagram generation. PaperBanana addresses this with PaperBananaBench, a dedicated benchmark curated from NeurIPS 2025 methodology diagrams, capturing the sophisticated aesthetics and diverse logical compositions of modern AI papers. The construction pipeline ensures high quality through: (1) Collection & Parsing, (2) Filtering, (3) Categorization, and (4) Human Curation. The final dataset comprises 584 valid samples, partitioned into 292 test and 292 reference cases.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/benchmark_statistics.jpg" alt="PaperBananaBench Statistics">
+        <p class="image-caption">Statistics of the test set of PaperBananaBench (totaling 292 samples). The average length of source context / figure caption is 3,020.1 / 70.4 words.</p>
+      </div>
+    </section>
+    
+    <!-- Experimental Results - same as original -->
+    <section>
+      <h2 class="section-title">Experimental Results</h2>
+      <p>
+        PaperBanana is evaluated on PaperBananaBench, assessing performance across faithfulness, conciseness, readability, and aesthetics. The method consistently outperforms leading baselines across all four evaluation dimensions.
+      </p>
+      
+      <p>
+        The method also seamlessly extends to the generation of high-quality statistical plots. The plot below was itself generated by the system from raw data.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/human_evaluation_barplot.jpg" alt="Experimental Results">
+      </div>
+    </section>
+    
+    <!-- Advanced Applications - same as original -->
+    <section>
+      <h2 class="section-title">Two Advanced Applications</h2>
+      
+      <h3>1. Enhancing Aesthetics of Human-Drawn Diagrams</h3>
+      <p>
+        We explore using our summarized aesthetic guidelines to elevate the aesthetic quality of existing human-drawn diagrams. Below is an example:
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/style_enhancement_application.jpg" alt="Enhancing Aesthetics">
+      </div>
+      
+      <h3>2. Coding vs Image Generation for Visualizing Statistical Plots</h3>
+      <p>
+        We explore using image generation models for statistical plots generation, comparing with code-based approaches. The results below reveal distinct trade-offs: image generation excels in presentation but underperforms in content fidelity.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/stat_plot_comparison.jpg" alt="Statistical Plot Comparison">
+      </div>
+    </section>
+    
+    <!-- Case Studies - same as original -->
+    <section>
+      <h2 class="section-title">Case Studies</h2>
+      
+      <h3>Case Study of Diagram Generation</h3>
+      <p>
+        Given the same source context and caption, the vanilla Nano-Banana-Pro often produces diagrams with outdated color tones and overly verbose content. In contrast, PaperBanana generates results that are more concise and aesthetically pleasing, while maintaining faithfulness to the source context.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/case1.jpg" alt="Diagram Generation Case Study">
+      </div>
+      
+      <h3>Enhancing Aesthetics</h3>
+      <p>
+        Additional cases for enhancing the aesthetics of human-drawn diagrams with auto-summarized style guidelines. The polished diagrams demonstrate significant stylistic improvements in color schemes, typography, graphical elements, etc.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/case2.jpg" alt="Enhancing Aesthetics Cases">
+      </div>
+      
+      <h3>Visualizing Statistical Plots</h3>
+      <p>
+        Case study for visualizing statistical plots with code and image generation. It is observed that the image generation model can generate more visually appealing plots, but incurs more faithfulness errors such as numerical hallucination or element repetition.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/case3.jpg" alt="Statistical Plot Visualization Cases">
+      </div>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/case4.jpg" alt="Additional Statistical Plot Cases">
+      </div>
+      
+      <h3>Failure Cases</h3>
+      <p>
+        The primary failure mode involves connection errors, such as redundant connections and mismatched source-target nodes. Our preliminary analysis reveals that the critic model often fails to identify these connectivity issues, suggesting these errors may originate from the foundation model's inherent perception limitations.
+      </p>
+      
+      <div class="image-container">
+        <img src="https://dwzhu-pku.github.io/PaperBanana/static/images/case5.jpg" alt="Failure Cases">
+      </div>
+    </section>
+    
+    <!-- Implementation Plan for University of Dubai -->
+    <section>
+      <h2 class="section-title">Implementation Plan at University of Dubai</h2>
+      
+      <div class="comparison">
+        <div class="comparison-column">
+          <h3>Phase 1: Initial Setup (1 Month)</h3>
+          <ul>
+            <li>Infrastructure setup on University cloud</li>
+            <li>Integration with existing research workflow systems</li>
+            <li>Development of University of Dubai style templates</li>
+            <li>Training of system administrators</li>
+          </ul>
+        </div>
+        
+        <div class="comparison-column">
+          <h3>Phase 2: Pilot Program (2 Months)</h3>
+          <ul>
+            <li>Deployment with selected research groups</li>
+            <li>Faculty and graduate student training workshops</li>
+            <li>Collection of user feedback and system refinement</li>
+            <li>Preliminary assessment of impact metrics</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison">
+        <div class="comparison-column">
+          <h3>Phase 3: Full Deployment (3 Months)</h3>
+          <ul>
+            <li>University-wide availability</li>
+            <li>Integration with publication submission systems</li>
+            <li>Expanded training program across departments</li>
+            <li>Development of department-specific templates</li>
+          </ul>
+        </div>
+        
+        <div class="comparison-column">
+          <h3>Phase 4: Assessment & Enhancement (Ongoing)</h3>
+          <ul>
+            <li>Comprehensive impact evaluation</li>
+            <li>Publication and grant success rate tracking</li>
+            <li>System updates and feature enhancements</li>
+            <li>Sharing of best practices across university</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Information -->
+    <section>
+      <h2 class="section-title">Contact Information</h2>
+      <p style="text-align: center;">
+        For more information about implementing PaperBanana at University of Dubai, please contact:<br>
+        <strong>Mohamed Asath</strong><br>
+        Project Lead, Research Enhancement Initiative<br>
+        Email: masath@ud.ac.ae<br>
+        Office: Technology Building, Room 123
+      </p>
+    </section>
   </div>
-</footer>
-
+  
+  <footer>
+    <div class="container">
+      <p>
+        <strong>Attribution:</strong> PaperBanana is a research framework by Google Cloud AI & Peking University.<br>
+        This is an implementation proposal for University of Dubai.
+      </p>
+      <p>
+        <small>
+          Images used are from the original paper (CC-BY-SA 4.0) for demonstration purposes.<br>
+          This website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+        </small>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
